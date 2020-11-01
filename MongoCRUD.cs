@@ -1,4 +1,6 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System.Collections.Generic;
 
 namespace TestingDotnetCoreWithMongoDB
 {
@@ -19,6 +21,12 @@ namespace TestingDotnetCoreWithMongoDB
         {
             var collection = db.GetCollection<T>(table);
             collection.InsertOne(record);
+        }
+
+        public List<T> LoadRecords<T>(string table) 
+        {
+            var collection = db.GetCollection<T>(table);
+            return collection.Find(new BsonDocument()).ToList();
         }
     }
 }
