@@ -6,7 +6,7 @@ namespace TestingDotnetCoreWithMongoDB
     public class PersonModel 
     {
         [BsonId] // in db it will be _id
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public AddressModel PrimaryAddress { get; set; }
