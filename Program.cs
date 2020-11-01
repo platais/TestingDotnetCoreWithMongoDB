@@ -28,6 +28,11 @@ namespace TestingDotnetCoreWithMongoDB
             foreach (var rec in records)
             {
                 Console.WriteLine($"{ rec.ID }: {rec.FirstName} {rec.LastName}");
+                if (rec.PrimaryAddress != null)
+                {
+                    Console.WriteLine(rec.PrimaryAddress.City);
+                }
+                Console.WriteLine();
             }
 
             Console.ReadLine();
