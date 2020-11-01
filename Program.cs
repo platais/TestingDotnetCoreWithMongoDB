@@ -7,7 +7,20 @@ namespace TestingDotnetCoreWithMongoDB
         static void Main(string[] args)
         {
             MongoCRUD db = new MongoCRUD("DemoMongoDB");
-            db.InsertRecord("Users", new PersonModel { FirstName = "HumansName", LastName = "HumansSurname" });
+
+            PersonModel person = new PersonModel
+            {
+                FirstName = "Rob",
+                LastName = "RobsLastname",
+                PrimaryAddress = new AddressModel
+                {
+                    Address = "Somaddress 99-95",
+                    City = "RIX",
+                    ZipCode = "LV102030"
+                }
+            };
+
+            db.InsertRecord("Users", person);//{ FirstName = "HumansName", LastName = "HumansSurname" });
             Console.ReadLine();
         }
     }
