@@ -34,9 +34,24 @@ namespace TestingDotnetCoreWithMongoDB
             //    }
             //    Console.WriteLine();
             //}
-            var oneRecord = db.LoadRecordById<PersonModel>("Users", new Guid("da39e7d4-ce97-48d6-a6e6-8b3d022046c6"));
 
+            var records = db.LoadRecords<NameModel>("Users");
+
+            foreach (var rec in records)
+            {
+                Console.WriteLine($"{rec.FirstName} {rec.LastName}");
+                Console.WriteLine();
+            }
+
+
+            //var oneRecord = db.LoadRecordById<PersonModel>("Users", new Guid("da39e7d4-ce97-48d6-a6e6-8b3d022046c6"));
+            //oneRecord.DateOfBirth = new DateTime(1942, 11, 13, 0, 0, 0, DateTimeKind.Utc);
+            //upserting
+            //db.UpsertRecord("Users", oneRecord.Id, oneRecord);
+
+            // db.DeleteRecord<PersonModel>("Users", oneRecord.Id);
             Console.ReadLine();
+            //1:00:00
         }
     }
 }
