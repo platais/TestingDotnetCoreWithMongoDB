@@ -10,7 +10,6 @@ namespace TestingDotnetCoreWithMongoDB
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public AddressModel PrimaryAddress { get; set; }
-
         //map DateOfBirth as dob
         [BsonElement("dob")]
         public DateTime DateOfBirth { get; set; }
